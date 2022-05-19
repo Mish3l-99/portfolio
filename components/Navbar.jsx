@@ -8,7 +8,11 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BsPersonLinesFill } from "react-icons/bs";
 
-const Navbar = () => {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const Navbar = (props) => {
   const [mobNav, setMobNav] = useState(false);
   const router = useRouter();
   const params = router.query;
@@ -18,8 +22,8 @@ const Navbar = () => {
       {/* main nav */}
       <div
         className={
-          params.length == 0
-            ? "fixed w-full h-fit shadow-xl bg-white py-1 z-[10]"
+          router.route === "/"
+            ? "fixed w-full h-fit py-1 hadow-xl bg-white z-[10]"
             : "fixed w-full h-fit py-1 z-[20] text-gray-100"
         }
       >
@@ -35,6 +39,7 @@ const Navbar = () => {
                   className="object-contain cursor-pointer"
                 />
               </Link>
+              {props.homee}
             </div>
             <div className="">
               <ul className="nav-ul hidden md:flex gap-x-8 font-semibold">
@@ -68,7 +73,7 @@ const Navbar = () => {
       <div
         className={
           mobNav
-            ? "fixed left-0 w-full h-screen bg-black/50 duration-300 z-[10]"
+            ? "fixed left-0 w-full h-screen bg-black/50 duration-300 z-[30]"
             : ""
         }
       >
@@ -162,3 +167,19 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// export async function getServerSideProps(context) {
+//   const { params } = context;
+//   var isHome = true;
+//   const homLen = params.length;
+//   if (params.length > 0) {
+//     isHome = false;
+//   }
+//   return {
+//     props: {
+//       home: isHome,
+//       homee: "homee",
+//       hom: homLen,
+//     },
+//   };
+// }
