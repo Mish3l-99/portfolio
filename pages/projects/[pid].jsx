@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 const ProjectDetailsPage = () => {
   const router = useRouter();
   const title = router.query.pid;
-  const titleSm = title.toLowerCase();
+  const titleSm = title?.toLowerCase();
   return (
     <>
       <Navbar className="bg-transparent" />
