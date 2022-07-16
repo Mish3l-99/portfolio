@@ -89,9 +89,9 @@ const Contact = () => {
                 <GiArrowWings size={25} />
                 <h3 className="">You can leave a message!</h3>
               </div>
-              <input type="text" placeholder="Name.." />
-              <input type="email" placeholder="Email.." />
-              <textarea placeholder="Message.." rows="8" />
+              <input name="name" type="text" placeholder="Name.." />
+              <input name="email" type="email" placeholder="Email.." />
+              <textarea name="message" placeholder="Message.." rows="8" />
               <button className="mt-12 w-fit mx-auto py-1 px-8">Submit</button>
             </form>
           </div>
