@@ -15,7 +15,7 @@ function classNames(...classes) {
 const Navbar = (props) => {
   const [mobNav, setMobNav] = useState(false);
   const router = useRouter();
-  const params = router.query;
+  // const params = router.query;
 
   return (
     <div className="">
@@ -46,16 +46,16 @@ const Navbar = (props) => {
                 <Link href="/">
                   <li className="">Home</li>
                 </Link>
-                <Link href="/">
+                <Link href="/#about">
                   <li className="">About</li>
                 </Link>
-                <Link href="/">
+                <Link href="/#skills">
                   <li className="">Skills</li>
                 </Link>
-                <Link href="/">
+                <Link href="/#projects">
                   <li className="">Projects</li>
                 </Link>
-                <Link href="/">
+                <Link href="/#contact">
                   <li className="">Contact</li>
                 </Link>
               </ul>
@@ -146,7 +146,7 @@ const Navbar = (props) => {
               </div>
               <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
                 <a
-                  href="mailto: meshaal.nasor10@gmail.com"
+                  href="mailto: meshaal.noureldien@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -154,7 +154,7 @@ const Navbar = (props) => {
                 </a>
               </div>
               <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
-                <a href="/CV.pdf" download>
+                <a href="/Resume.pdf" download>
                   <BsPersonLinesFill size={25} />
                 </a>
               </div>

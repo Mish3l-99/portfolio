@@ -7,7 +7,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <section>
+    <section id="contact">
       <div className="container">
         <h3 className="text-meshaal uppercase">Contact</h3>
         <div className="flex space-x-2">
@@ -80,7 +80,11 @@ const Contact = () => {
 
           {/* form col */}
           <div className="col-span-3 md:col-span-2">
-            <form action="" className="form">
+            <form
+              action="https://getform.io/f/6b00cd38-3e80-4644-a68b-1e67dc7c9de7"
+              method="POST"
+              className="form"
+            >
               <div className="flex items-center space-x-2 text-lg md:text-3xl mb-4 font-semibold">
                 <GiArrowWings size={25} />
                 <h3 className="">You can leave a message!</h3>

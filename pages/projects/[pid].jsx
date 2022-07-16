@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,18 +8,28 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useRouter } from "next/router";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const ProjectDetailsPage = () => {
+  const [project, setProject] = useState();
   const router = useRouter();
-  const title = router.query.pid;
-  const titleSm = title?.toLowerCase();
+  const id = router.query.pid;
+  useEffect(() => {
+    getDoc(doc(db, "projects", id)).then((res) => {
+      setProject(res.data());
+    });
+  }, []);
+  if (!project) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       <Navbar className="bg-transparent" />
       <div>
         <div className="w-screen h-[220px] md:h-[260px] relative bg-black">
           <Image
-            src={`/assets/projects/${titleSm}.png`}
+            src={project.img}
             alt="/"
             layout="fill"
             objectFit="cover"
@@ -30,8 +40,8 @@ const ProjectDetailsPage = () => {
           <div className="absolute left-0 top-0 z-[10] w-full h-full flex flex-col justify-end py-12 text-gray-200">
             <div>
               <div className="container">
-                <h2>{title}</h2>
-                <p>ReactJS/Tailwind/Firebase</p>
+                <h2>{project.title}</h2>
+                <p>{`${project.skills[0]}/${project.skills[1]}`}</p>
               </div>
             </div>
           </div>
@@ -48,20 +58,13 @@ const ProjectDetailsPage = () => {
                 </span>
                 <h1 className="mb-4">Overview</h1>
               </div>
-              <p className="my-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellendus voluptatem nostrum perspiciatis soluta quam
-                reiciendis earum quo cupiditate, alias consequuntur aliquid
-                architecto fugiat ratione dicta pariatur est ipsam debitis
-                sapiente deserunt placeat explicabo quod nisi dolorem
-                repudiandae. Incidunt accusantium eaque ut nisi nam ipsum fugit!
-              </p>
+              <p className="my-3">{project.des}</p>
               <div className="flex items-center space-x-2">
                 <button className="px-4 py-1 rounded-md">
-                  <a href="/somewhere">Demo</a>
+                  <a href={project.demo}>Demo</a>
                 </button>
                 <button className="px-4 py-1 rounded-md">
-                  <a href="/somewhere">Code</a>
+                  <a href={project.code}>Code</a>
                 </button>
               </div>
               <span
@@ -78,22 +81,15 @@ const ProjectDetailsPage = () => {
                 <h3 className="text-lg md:text-2xl">Technologies</h3>
               </div>
               <div className="my-2 p-4">
-                <div className="flex items-center space-x-2 my-1 md:text-lg">
-                  <IoMdCheckmarkCircleOutline className="text-meshaal" />
-                  <span>ReactJS</span>
-                </div>
-                <div className="flex items-center space-x-2 my-1 md:text-lg">
-                  <IoMdCheckmarkCircleOutline className="text-meshaal" />
-                  <span>NEXT JS</span>
-                </div>
-                <div className="flex items-center space-x-2 my-1 md:text-lg">
-                  <IoMdCheckmarkCircleOutline className="text-meshaal" />
-                  <span>Tailwind CSS</span>
-                </div>
-                <div className="flex items-center space-x-2 my-1 md:text-lg">
-                  <IoMdCheckmarkCircleOutline className="text-meshaal" />
-                  <span>Firebase</span>
-                </div>
+                {project.skills.map((s, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center space-x-2 my-1 md:text-lg"
+                  >
+                    <IoMdCheckmarkCircleOutline className="text-meshaal" />
+                    <span>{s}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

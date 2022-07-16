@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <section>
+    <section id="about">
       <div className="container">
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-3 md:col-span-2">
@@ -30,11 +30,11 @@ const About = () => {
             <p className="text-lg">
               Fascinated with how intricate programming can be I was quickly
               drawn to learn more. I started learning javascript and was even
-              more enthused with making websites interactive, I leanred
-              javascript and php for the back-end I then started freelancing and
-              made many projects for clients online, and to this point I am
+              more enthused with making websites interactive, I mastered
+              javascript, and php for the back-end. I then started freelancing
+              and made many projects for clients online, and to this point I am
               still freelancing and learning with React JS, Firebase and Next JS
-              being the Latest Technologies I use.
+              being the Latest Technologies that I use.
             </p>
           </div>
           <div className="col-span-3 md:col-span-1">
@@ -42,7 +42,7 @@ const About = () => {
               <div className="image_wrapper">
                 <Image
                   alt="/"
-                  src="/assets/about.jpg"
+                  src="/about.jpg"
                   layout="fill"
                   objectFit="cover"
                 />

@@ -5,7 +5,7 @@ import { BsArrowReturnRight } from "react-icons/bs";
 
 const Skills = () => {
   return (
-    <section>
+    <section id="skills">
       <div className="container">
         <h3 className="text-meshaal uppercase">Skills</h3>
         <div className="flex space-x-2">
