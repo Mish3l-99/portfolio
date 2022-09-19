@@ -65,7 +65,7 @@ const Main = () => {
                 </a>
               </div>
               <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
-                <a href="/CV.pdf" download>
+                <a href="/Resume.pdf" download>
                   <BsPersonLinesFill size={25} />
                 </a>
               </div>

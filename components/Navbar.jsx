@@ -107,19 +107,19 @@ const Navbar = (props) => {
           <div>
             <ul className="mob-ul">
               <Link href="/">
-                <li>Home</li>
+                <li className="">Home</li>
               </Link>
-              <Link href="/">
-                <li>About</li>
+              <Link href="/#about">
+                <li className="">About</li>
               </Link>
-              <Link href="/">
-                <li>Skills</li>
+              <Link href="/#skills">
+                <li className="">Skills</li>
               </Link>
-              <Link href="/">
-                <li>Projects</li>
+              <Link href="/#projects">
+                <li className="">Projects</li>
               </Link>
-              <Link href="/">
-                <li>Contact</li>
+              <Link href="/#contact">
+                <li className="">Contact</li>
               </Link>
             </ul>
           </div>
