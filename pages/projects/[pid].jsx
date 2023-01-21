@@ -61,10 +61,14 @@ const ProjectDetailsPage = () => {
               <p className="my-3">{project.des}</p>
               <div className="flex items-center space-x-2">
                 <button className="px-4 py-1 rounded-md">
-                  <a href={project.demo}>Demo</a>
+                  <a target="_blank" rel="noreferrer" href={project.demo}>
+                    Demo
+                  </a>
                 </button>
                 <button className="px-4 py-1 rounded-md">
-                  <a href={project.code}>Code</a>
+                  <a target="_blank" rel="noreferrer" href={project.code}>
+                    Code
+                  </a>
                 </button>
               </div>
               <span
