@@ -28,7 +28,7 @@ const Footer = () => {
           <div>
             <a
               className="text-green-800"
-              href="https://wa.me/249126424865"
+              href="https://wa.me/249115035162"
               target="_blank"
               rel="noopener noreferrer"
             >
