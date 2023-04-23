@@ -85,6 +85,36 @@ const Skills = () => {
                   height={40}
                   width={50}
                   alt="/"
+                  src="/assets/skills/ts.png"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="">Typescript</p>
+            </div>
+          </div>
+          {/* item */}
+          <div className="item">
+            <div className="flex justify-center items-center space-x-3">
+              <div>
+                <Image
+                  height={50}
+                  width={50}
+                  alt="/"
+                  src="/assets/skills/native.png"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="">React Native</p>
+            </div>
+          </div>
+          {/* item */}
+          <div className="item">
+            <div className="flex justify-center items-center space-x-3">
+              <div>
+                <Image
+                  height={40}
+                  width={50}
+                  alt="/"
                   src="/assets/skills/react.png"
                   objectFit="contain"
                 />
@@ -165,6 +195,51 @@ const Skills = () => {
                 />
               </div>
               <p className="">Git</p>
+            </div>
+          </div>
+          {/* item */}
+          <div className="item">
+            <div className="flex justify-center items-center space-x-3">
+              <div>
+                <Image
+                  height={40}
+                  width={50}
+                  alt="/"
+                  src="/assets/skills/express.png"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="">Express js</p>
+            </div>
+          </div>
+          {/* item */}
+          <div className="item">
+            <div className="flex justify-center items-center space-x-3">
+              <div>
+                <Image
+                  height={40}
+                  width={50}
+                  alt="/"
+                  src="/assets/skills/mongo.png"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="">Mongo DB</p>
+            </div>
+          </div>
+          {/* item */}
+          <div className="item">
+            <div className="flex justify-center items-center space-x-3">
+              <div>
+                <Image
+                  height={40}
+                  width={50}
+                  alt="/"
+                  src="/assets/skills/hosting.avif"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="">Web Hosting</p>
             </div>
           </div>
         </div>
