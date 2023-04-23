@@ -57,7 +57,7 @@ const Main = () => {
               </div>
               <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
                 <a
-                  href="mailto: meshaal.nasor10@gmail.com"
+                  href="mailto: meshaal.noureldien@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
