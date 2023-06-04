@@ -93,7 +93,7 @@ const Skills = () => {
             </div>
           </div>
           {/* item */}
-          <div className="item">
+          {/* <div className="item">
             <div className="flex justify-center items-center space-x-3">
               <div>
                 <Image
@@ -106,7 +106,7 @@ const Skills = () => {
               </div>
               <p className="">React Native</p>
             </div>
-          </div>
+          </div> */}
           {/* item */}
           <div className="item">
             <div className="flex justify-center items-center space-x-3">
@@ -225,6 +225,21 @@ const Skills = () => {
                 />
               </div>
               <p className="">Mongo DB</p>
+            </div>
+          </div>
+          {/* item */}
+          <div className="item">
+            <div className="flex justify-center items-center space-x-3">
+              <div>
+                <Image
+                  height={40}
+                  width={50}
+                  alt="/"
+                  src="/assets/skills/seo.png"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="">SEO</p>
             </div>
           </div>
           {/* item */}
