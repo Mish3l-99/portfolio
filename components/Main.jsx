@@ -34,7 +34,8 @@ const Main = () => {
               I am a full-stack developer specializing in building (and
               desiging) Exeptional Digital Experiences. Currently I am focused
               on building modern responsive full-stack Web Applications using
-              React and NextJS.
+              React and NextJS for the frontend and Node+Express for the backend
+              apps.
             </p>
             <div className="social flex justify-between items-center w-full max-w-[220px] md:max-w-[350px] mx-auto mt-8">
               <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
