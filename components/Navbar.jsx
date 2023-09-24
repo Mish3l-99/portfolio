@@ -105,7 +105,7 @@ const Navbar = (props) => {
             </p>
           </div>
           <div>
-            <ul className="mob-ul">
+            <ul onClick={() => setMobNav(false)} className="mob-ul">
               <Link href="/">
                 <li className="">Home</li>
               </Link>
@@ -167,19 +167,3 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
-
-// export async function getServerSideProps(context) {
-//   const { params } = context;
-//   var isHome = true;
-//   const homLen = params.length;
-//   if (params.length > 0) {
-//     isHome = false;
-//   }
-//   return {
-//     props: {
-//       home: isHome,
-//       homee: "homee",
-//       hom: homLen,
-//     },
-//   };
-// }

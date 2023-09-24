@@ -12,14 +12,30 @@ import brandImg from "../public/assets/projects/brand.png";
 import { collection, getDocs, limit, query } from "firebase/firestore";
 import { db } from "../firebase";
 
+import { motion } from "framer-motion";
+
+const staggerVariants = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+
+const transitionVar = { duration: 0.6, staggerChildren: 0.6 };
+
+const projVariants = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: -30 },
+};
+
 const Projects = () => {
   const [projects, setProjects] = useState();
+
   useEffect(() => {
     const projectsQ = query(collection(db, "projects"), limit(6));
     getDocs(projectsQ).then((data) => {
       setProjects(data.docs.map((doc) => ({ id: doc.id })));
     });
   }, []);
+
   if (!projects) {
     return <p>Loading...</p>;
   }
@@ -36,48 +52,29 @@ const Projects = () => {
         </div>
 
         {/* projects grid */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerVariants}
+          transition={transitionVar}
+          className="grid md:grid-cols-3 gap-4"
+        >
+          {/* highlighted project */}
+          {/* <div className="col-span-12">hi</div> */}
+
+          {/* the rest */}
           {projects.map((p, i) => (
-            <Project key={i} id={p.id} />
+            <motion.div
+              variants={projVariants}
+              transition={{ duration: 0.5 }}
+              key={i}
+              className=""
+            >
+              <Project id={p.id} />
+            </motion.div>
           ))}
-          {/* grid item
-          <Project
-            title="Travel"
-            backgroundImg={travelImg}
-            projectUrl="/blah"
-            githubRepo="blahblah"
-          />
-          <Project
-            title="Socia"
-            backgroundImg={sociaImg}
-            projectUrl="/blah"
-            githubRepo="blahblah"
-          />
-          <Project
-            title="Defi"
-            backgroundImg={defiImg}
-            projectUrl="/blah"
-            githubRepo="blahblah"
-          />
-          <Project
-            title="Data"
-            backgroundImg={dataImg}
-            projectUrl="/blah"
-            githubRepo="blahblah"
-          />
-          <Project
-            title="Brand"
-            backgroundImg={brandImg}
-            projectUrl="/blah"
-            githubRepo="blahblah"
-          />
-          <Project
-            title="Aptive"
-            backgroundImg={aptiveImg}
-            projectUrl="/blah"
-            githubRepo="blahblah"
-          /> */}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

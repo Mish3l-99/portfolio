@@ -6,6 +6,10 @@ h1 {
   font-family: "Merriweather Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide font-[Nunito];
@@ -50,7 +54,7 @@ h1 {
     @apply font-semibold hover:text-[#ff1616] duration-500 transition-colors ease-in;
   }
   section {
-    @apply py-16;
+    @apply py-20 md:py-24;
   }
   .image_wrapper {
     @apply relative w-full h-[280px] md:h-full;

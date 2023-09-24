@@ -20,7 +20,7 @@ const Project = (props) => {
   return (
     <div className="col-span-3 md:col-span-1 relative h-[300px] flex items-center justify-center w-full shadow-xl shadow-gray-400 rounded-md p-4 group hover:bg-gradient-to-r from-[#ff1616] to-[#ff7c7c] overflow-hidden max-h-[300px]">
       <Image
-        className="rounded-xl group-hover:opacity-10"
+        className="rounded-xl object-top group-hover:opacity-10"
         src={project.img}
         objectFit="cover"
         quality={20}

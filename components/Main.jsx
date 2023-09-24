@@ -20,15 +20,18 @@ const Main = () => {
             </h1>
             <div className="flex flex-col">
               <span className="text-blue-900 font-semibold">I am a </span>
-              <Typed
-                className="text-2xl sm:text-3xl md:text-4xl font-bold pl-2 text-gray-800"
-                strings={["Full-Stack Javascript Developer."]}
-                // strings={["Hi, I am Meshaal!&nbsp;&#x1f91d;"]}
-                // strings={["BTB.", "BTC.", "SASS."]}
-                typeSpeed={70}
-                backSpeed={70}
-                loop
-              />
+              <span className="text-2xl sm:text-3xl md:text-4xl font-bold pl-2 text-gray-800">
+                Full Stack{" "}
+                <Typed
+                  className=""
+                  strings={["Javascript Developer."]}
+                  // strings={["Hi, I am Meshaal!&nbsp;&#x1f91d;"]}
+                  // strings={["BTB.", "BTC.", "SASS."]}
+                  typeSpeed={70}
+                  backSpeed={70}
+                  loop
+                />
+              </span>
             </div>
             <p className="p-2 my-4">
               I am a full-stack developer specializing in building (and
