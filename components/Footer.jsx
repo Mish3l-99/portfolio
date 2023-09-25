@@ -21,7 +21,7 @@ const Footer = () => {
 
           {/* absolute arrow up */}
           <div className="absolute left-[50%] translate-x-[-50%] top-[33px] p-1 rounded-full bg-white shadow-lg shadow-gray-700 mt-[-60px] cursor-pointer hover:scale-110 ease-in duration-500">
-            <Link href="/#">
+            <Link href="#">
               <MdOutlineDoubleArrow
                 size={25}
                 className="rotate-[-90deg] text-meshaal"
