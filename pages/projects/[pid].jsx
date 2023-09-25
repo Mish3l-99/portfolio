@@ -24,7 +24,7 @@ const ProjectDetailsPage = () => {
     return <p>Loading...</p>;
   }
   return (
-    <main className="min-h-screen flex flex-col justify-between">
+    <main className="min-h-screen">
       <Navbar className="bg-transparent" />
       <div>
         <div className="w-screen h-[220px] md:h-[260px] relative bg-black">
