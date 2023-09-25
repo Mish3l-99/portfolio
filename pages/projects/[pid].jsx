@@ -24,7 +24,7 @@ const ProjectDetailsPage = () => {
     return <p>Loading...</p>;
   }
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex flex-col">
       <Navbar className="bg-transparent" />
       <div>
         <div className="w-screen h-[220px] md:h-[260px] relative bg-black">
@@ -33,7 +33,7 @@ const ProjectDetailsPage = () => {
             alt="/"
             layout="fill"
             objectFit="cover"
-            className="opacity-10"
+            className="opacity-10 object-center"
           />
 
           {/* the absolute layer */}
