@@ -13,6 +13,7 @@ import { collection, getDocs, limit, query } from "firebase/firestore";
 import { db } from "../firebase";
 
 import { motion } from "framer-motion";
+import RecentProject from "./RecentProject";
 
 const staggerVariants = {
   visible: { opacity: 1 },
@@ -50,12 +51,14 @@ const Projects = () => {
           </span>
           <h1 className="mb-4">What I&#39;ve done</h1>
         </div>
+        <RecentProject />
 
         {/* projects grid */}
+        <h3 className="font-bold text-2xl mb-4">More Projects:</h3>
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           variants={staggerVariants}
           transition={transitionVar}
           className="grid md:grid-cols-3 gap-4"

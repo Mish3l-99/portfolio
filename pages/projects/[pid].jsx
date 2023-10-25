@@ -62,7 +62,7 @@ const ProjectDetailsPage = () => {
               <div className="flex items-center space-x-2">
                 <button className="px-4 py-1 rounded-md">
                   <a target="_blank" rel="noreferrer" href={project.demo}>
-                    Demo
+                    View Demo
                   </a>
                 </button>
                 <button className="px-4 py-1 rounded-md">
