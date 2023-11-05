@@ -60,7 +60,7 @@ html {
     @apply relative w-full h-[280px] md:h-full;
   }
   .item {
-    @apply col-span-1 p-3 rounded-md shadow-lg shadow-gray-400 hover:scale-110 duration-500 ease-out;
+    @apply col-span-1 bg-gray-50 p-3 rounded-md shadow-md shadow-gray-300 hover:scale-110 hover:shadow-meshaal/20 duration-500 ease-out;
   }
   .item p {
     @apply font-semibold;

@@ -126,7 +126,7 @@ const Navbar = (props) => {
           <div className="mt-28">
             <p className="tracking-widest uppercase">Let&#39;s Connect</p>
             <div className="social flex justify-between items-center w-full  max-w-[220px] md:max-w-[350px] mt-8">
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 bg-white border border-gray-400 rounded">
                 <a
                   href="https://www.linkedin.com/in/mishaal-noureldien-204294208/"
                   target="_blank"
@@ -135,7 +135,7 @@ const Navbar = (props) => {
                   <FaLinkedin size={25} />
                 </a>
               </div>
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 bg-white border border-gray-400 rounded">
                 <a
                   href="https://github.com/Mish3l-99"
                   target="_blank"
@@ -144,7 +144,7 @@ const Navbar = (props) => {
                   <FaGithub size={25} />
                 </a>
               </div>
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 bg-white border border-gray-400 rounded">
                 <a
                   href="mailto: meshaal.noureldien@gmail.com"
                   target="_blank"
@@ -153,7 +153,7 @@ const Navbar = (props) => {
                   <MdEmail size={25} />
                 </a>
               </div>
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 bg-white border border-gray-400 rounded">
                 <a href="/Resume.pdf" download>
                   <BsPersonLinesFill size={25} />
                 </a>

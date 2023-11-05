@@ -41,7 +41,7 @@ const Main = () => {
               apps.
             </p>
             <div className="social flex justify-between items-center w-full max-w-[220px] md:max-w-[350px] mx-auto mt-8">
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 shadow-lg border border-gray-600 bg-white rounded">
                 <a
                   href="https://www.linkedin.com/in/mishaal-noureldien-204294208/"
                   target="_blank"
@@ -50,7 +50,7 @@ const Main = () => {
                   <FaLinkedin size={25} />
                 </a>
               </div>
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 shadow-lg border border-gray-600 bg-white rounded">
                 <a
                   href="https://github.com/Mish3l-99"
                   target="_blank"
@@ -59,7 +59,7 @@ const Main = () => {
                   <FaGithub size={25} />
                 </a>
               </div>
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 shadow-lg border border-gray-600 bg-white rounded">
                 <a
                   href="mailto: meshaal.noureldien@gmail.com"
                   target="_blank"
@@ -68,7 +68,7 @@ const Main = () => {
                   <MdEmail size={25} />
                 </a>
               </div>
-              <div className="p-1 shadow-lg shadow-gray-400 rounded-sm">
+              <div className="p-1 shadow-lg border border-gray-600 bg-white rounded">
                 <a href="/Resume.pdf" download>
                   <BsPersonLinesFill size={25} />
                 </a>
