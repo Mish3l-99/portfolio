@@ -55,13 +55,14 @@ const About = () => {
             </motion.div>
           </div>
           <div className="col-span-3 md:col-span-1 ">
-            <div className="shrink-0 h-full w-full p-2 rounded bg-white shadow-lg shadow-gray-400">
+            <div className="h-full w-full p-2 rounded bg-white shadow-lg shadow-gray-400">
               <div className="image_wrapper">
                 <Image
                   alt="/"
                   src="/about.jpg"
                   layout="fill"
                   objectFit="cover"
+                  className="object-left"
                 />
               </div>
             </div>
