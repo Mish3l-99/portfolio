@@ -34,11 +34,10 @@ const Main = () => {
               </span>
             </div>
             <p className="p-2 my-4">
-              I am a full-stack developer specializing in building (and
-              desiging) Exeptional Digital Experiences. Currently I am focused
-              on building modern responsive full-stack Web Applications using
-              React and NextJS for the frontend and Node+Express for the backend
-              apps.
+              I am a full-stack developer specializing in building modern,
+              responsive web applications. Currently, I focus on creating
+              exceptional digital experiences using Next.js for the frontend and
+              Node.js or Laravel for the backend.
             </p>
             <div className="social flex justify-between items-center w-full max-w-[220px] md:max-w-[350px] mx-auto mt-8">
               <div className="p-1 shadow-lg border border-gray-600 bg-white rounded">
