@@ -58,17 +58,17 @@ html {
     @apply relative w-full h-[280px] md:h-full;
   }
   .item {
-    @apply col-span-1 bg-gray-50 p-3 rounded-md shadow-md shadow-gray-300 hover:scale-110 hover:shadow-meshaal/20 duration-500 ease-out;
+    @apply col-span-1 bg-gray-50 p-3 rounded-md shadow-md flex items-center justify-between w-full shadow-gray-300 hover:scale-110 hover:shadow-meshaal/20 duration-500 ease-out;
   }
   .item p {
     @apply font-semibold;
   }
   .form {
-    @apply flex flex-col  h-full;
+    @apply flex flex-col h-full;
   }
   .form input,
   .form textarea {
-    @apply py-1 px-2 rounded my-2;
+    @apply py-1 border border-gray-300 px-2 rounded my-2;
   }
   .social a {
     @apply hover:text-meshaal;

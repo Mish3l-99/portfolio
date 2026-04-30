@@ -19,21 +19,21 @@ const singleVariants = {
 };
 
 const skills = [
-  { name: "HTML", img: "html.png" },
-  { name: "CSS", img: "css.png" },
-  { name: "Tailwind CSS", img: "tailwind.png" },
   { name: "Javascript", img: "javascript.png" },
   { name: "Typescript", img: "ts.png" },
   { name: "React JS", img: "react.png" },
   { name: "Next JS", img: "next.png" },
+  { name: "Tailwind CSS", img: "tailwind.png" },
   { name: "Firebase", img: "firebase.png" },
-  { name: "PHP", img: "php.png" },
-  { name: "MySQL", img: "mysql.png" },
-  { name: "Git", img: "git.png" },
   { name: "Express js", img: "express.png" },
+  { name: "PHP", img: "php.png" },
+  { name: "LARAVEL", img: "laravel.png" },
+  { name: "MySQL", img: "mysql.png" },
   { name: "Mongo DB", img: "mongo.png" },
   { name: "SEO", img: "seo.png" },
-  { name: "Web Hosting", img: "hosting.avif" },
+  { name: "Git", img: "git.png" },
+  { name: "Server Manage", img: "linux.png" },
+  { name: "DOCKER", img: "docker.png" },
 ];
 
 const Skills = () => {
@@ -52,10 +52,10 @@ const Skills = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
           variants={staggerVariants}
           transition={transitionVar}
-          className="grid grid-cols-2 md:grid-cols-5 mt-8 gap-4 max-w-[900px] mx-auto"
+          className="grid grid-cols-2 md:grid-cols-5 mt-8 gap-4 max-w-225 mx-auto"
         >
           {/* item */}
           {skills.map((item, i) => (
@@ -65,16 +65,14 @@ const Skills = () => {
               key={i}
               className="item"
             >
-              <div className="flex justify-center items-center space-x-3">
-                <div>
-                  <Image
-                    height={40}
-                    width={50}
-                    alt="/"
-                    src={`/assets/skills/${item.img}`}
-                    objectFit="contain"
-                  />
-                </div>
+              <div className="w-full flex justify-center items-center space-x-3">
+                <Image
+                  height={40}
+                  width={50}
+                  alt="/"
+                  src={`/assets/skills/${item.img}`}
+                  objectFit="contain"
+                />
                 <p className="">{item.name}</p>
               </div>
             </motion.div>

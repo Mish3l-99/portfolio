@@ -10,7 +10,7 @@ const About = () => {
   return (
     <section id="about">
       <div className="container">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4 md:gap-12">
           <div className="col-span-3 md:col-span-2">
             <h3 className="text-meshaal uppercase">About</h3>
             <div className="flex space-x-2">
@@ -21,37 +21,45 @@ const About = () => {
             </div>
             <p className="text-lg my-4 flex space-x-2 items-center">
               <MdOutlineDoubleArrow />
-              <span>I am not your typical developer</span>
+              <span>Not your typical developer</span>
             </p>
             <motion.div>
               <p className="text-lg my-4">
-                My journey with software development began in high school,
-                fueled by a natural curiosity for technology and working with
-                computers. In 2019, I started tinkering with HTML and CSS to
-                make minor edits to a small business website I was managing.
-                What began as a simple task quickly evolved into a deep passion
-                and a fulfilling career.
+                My journey into software development started out of pure
+                curiosity—experimenting with small changes to a website and
+                quickly realizing how much could be built from just a few lines
+                of code. What began with simple HTML and CSS edits soon evolved
+                into a deeper interest in building interactive and meaningful
+                digital experiences.
               </p>
               <p className="text-lg">
-                Captivated by the complexity and creativity of programming, I
-                dove deeper into the world of code. I started learning
-                JavaScript and fell in love with the ability to create
-                interactive websites. Soon after, I expanded my skills to
-                include PHP for backend development. Eager to put my skills to
-                work, I ventured into freelancing, building a diverse range of
-                projects for clients around the globe. Along the way, I
-                continuously honed my expertise, exploring modern technologies
-                like React.js, Firebase, Next.js, Laravel, and Strapi. These
-                tools have enabled me to craft dynamic, responsive applications
-                and develop robust APIs that drive efficient and user-friendly
-                solutions.
+                As I progressed, I moved into JavaScript and backend
+                development, eventually working with technologies like React,
+                Next.js, Node.js, and Laravel. I gained hands-on experience
+                through freelancing, delivering 15+ projects for clients across
+                different industries, which exposed me to real-world challenges
+                beyond just writing code—performance, scalability, and
+                reliability.
               </p>
-              <p className="mt-2 text-lg">
-                Today, I am both a full-time employee and a freelancer,
-                leveraging my skills to deliver exceptional solutions while
-                continually learning and pushing the boundaries of what I can
-                create. For me, software development is not just a career—it is
-                a lifelong passion.
+              <p className="text-lg">
+                Over time, I transitioned into building and maintaining larger
+                production systems, including redesigning legacy platforms,
+                developing scalable architectures, and implementing real-time
+                features such as messaging and notifications. I’ve worked across
+                full-stack environments, handling everything from frontend
+                interfaces to backend APIs and deployment.
+              </p>
+              <p className="text-lg">
+                Today, I work as a full-time developer while continuing to grow
+                through side projects and continuous learning. I actively
+                leverage modern AI tools to enhance my development workflow,
+                improve code quality, and solve complex problems more
+                efficiently.
+              </p>
+              <p className="tmt-2 ext-lg">
+                For me, development is not just about building features—it’s
+                about building systems that last, perform, and deliver real
+                value.
               </p>
             </motion.div>
           </div>

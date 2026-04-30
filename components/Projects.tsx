@@ -51,7 +51,7 @@ const Projects = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
           variants={staggerVariants}
           transition={transitionVar}
           className="grid md:grid-cols-3 gap-4"

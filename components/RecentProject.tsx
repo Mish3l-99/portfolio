@@ -18,20 +18,22 @@ const RecentProject = () => {
       <div className="my-6 grid grid-cols-12 items-center gap-2">
         <div className="col-span-12 md:col-span-4">
           <h3 className="mb-2">
-            Check this recent project that I built for a tourism Agency:
+            Check out this recent project I built for a tourism agency:
           </h3>
 
           <p>
-            This is a project that I built for a tourism company in its early
-            stages it showcases their trips and other information about their
-            services.
+            A modern tourism website designed for an early-stage travel company
+            to showcase trips, destinations, and services. The project is
+            heavily focused on polished UI, smooth animations, and creating an
+            engaging user experience.
           </p>
+
           <div className="mt-4 flex flex-col md:flex-row gap-4">
             <a
               target="_blank"
               rel="noreferrer"
               href={proj.link}
-              className="bg-meshaal w-fit text-white hover:bg-white hover:text-black duration-500 ease-in py-1 px-3 rounded border shadow flex items-center gap-x-2"
+              className="bg-meshaal w-fit text-white hover:bg-white hover:text-black duration-500 ease-in px-4 py-2 rounded-lg border shadow flex items-center gap-x-2"
             >
               View Webpage
               <FaRegEye />
@@ -40,7 +42,7 @@ const RecentProject = () => {
               target="_blank"
               rel="noreferrer"
               href={proj.codeLink}
-              className="bg-white w-fit text-gray-800 hover:bg-white hover:shadow-lg duration-500 ease-in py-1 px-4 rounded-full border shadow flex items-center gap-x-2"
+              className="bg-white w-fit text-gray-800 hover:bg-white hover:shadow-lg duration-500 ease-in py-1 px-4 rounded-full border flex items-center gap-x-2"
             >
               Code
               <BsCodeSlash />

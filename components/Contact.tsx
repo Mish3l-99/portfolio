@@ -43,7 +43,8 @@ const Contact = () => {
             <div className="social flex justify-between items-center w-full  max-w-[220px] mt-8">
               <div className="p-1 border border-gray-400 bg-white rounded">
                 <a
-                  href="https://www.twitter.com"
+                  href="#"
+                  // href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -52,7 +53,8 @@ const Contact = () => {
               </div>
               <div className="p-1 border border-gray-400 bg-white rounded">
                 <a
-                  href="https://www.facebook.com"
+                  href="#"
+                  // href="https://www.facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -61,7 +63,7 @@ const Contact = () => {
               </div>
               <div className="p-1 border border-gray-400 bg-white rounded">
                 <a
-                  href="https://www.linkedin.com/in/mishaal-noureldien-204294208/"
+                  href="https://www.linkedin.com/in/meshaal-noureldien-204294208/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -96,7 +98,7 @@ const Contact = () => {
                 <input name="name" type="text" placeholder="Name.." />
                 <input name="email" type="email" placeholder="Email.." />
                 <textarea name="message" placeholder="Message.." rows={8} />
-                <button className="mt-12 w-fit mx-auto py-1 px-8">
+                <button className="mt-10 w-fit mx-auto py-1 px-8">
                   Submit
                 </button>
 
