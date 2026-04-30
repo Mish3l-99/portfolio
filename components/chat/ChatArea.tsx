@@ -19,6 +19,7 @@ function ChatArea() {
       },
     },
     theme: "light",
+    history: { enabled: false },
     header: {
       title: {
         text: `Chat with My AI Twin`,
