@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Socia",
+      "img": "/assets/projects/socia.png",
+      "des": "this is a social media website design.",
+      "demo": "https://mish3l-99.github.io/socia/",
+      "code": "https://github.com/Mish3l-99/socia",
+      "skills": ["PHP", "Bootstrap"]
+    },
+    {
+      "id": "2",
+      "title": "Travel",
+      "img": "/assets/projects/travel.png",
+      "des": "this is a travel agency website design",
+      "demo": "https://mish3l-99.github.io/travel",
+      "code": "https://github.com/Mish3l-99/travel",
+      "skills": ["React", "Next.js", "Tailwind CSS"]
+    },
+    {
+      "id": "3",
+      "title": "Aptive",
+      "img": "/assets/projects/aptive.png",
+      "des": "This is a website UI designed.",
+      "demo": "https://mish3l-99.github.io/aptive",
+      "code": "https://github.com/Mish3l-99/aptive",
+      "skills": ["React", "Next.js", "Tailwind CSS"]
+    },
+    {
+      "id": "4",
+      "title": "Defi",
+      "img": "/assets/projects/defi.png",
+      "des": "this is a website design.",
+      "demo": "https://mish3l-99.github.io/defi",
+      "code": "https://github.com/Mish3l-99/defi",
+      "skills": ["React", "Next.js", "Tailwind CSS"]
+    },
+    {
+      "id": "5",
+      "title": "Data",
+      "img": "/assets/projects/data.png",
+      "des": "this is a website UI design.",
+      "demo": "https://mish3l-99.github.io/data",
+      "code": "https://github.com/Mish3l-99/data",
+      "skills": ["React", "Next.js", "Tailwind CSS"]
+    },
+    {
+      "id": "6",
+      "title": "Brand",
+      "img": "/assets/projects/brand.png",
+      "des": "this is a website UI design.",
+      "demo": "https://mish3l-99.github.io/brand",
+      "code": "https://github.com/Mish3l-99/brand",
+      "skills": ["React", "Next.js", "Tailwind CSS"]
+    }
+  ]
+}
