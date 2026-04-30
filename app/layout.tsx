@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Script from "next/script";
+import Chat from "@/components/chat";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -30,9 +32,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lato.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <Script
+          src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
+          strategy="afterInteractive"
+        />
+
         <Navbar />
         {children}
         <Footer />
+
+        {/* ai chat */}
+        <Chat />
       </body>
     </html>
   );
