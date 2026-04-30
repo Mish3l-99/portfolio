@@ -1,3 +1,5 @@
+"use client";
+
 import ChatButton from "./button";
 import ChatDrawer from "./drawer";
 
