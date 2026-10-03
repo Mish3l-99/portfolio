@@ -6,6 +6,7 @@ import Chat from "@/components/chat";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -24,12 +25,38 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: `${site.firstName} | ${site.role}`,
-    template: `%s | ${site.firstName}`,
-  },
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s | ${site.name}` },
   description: site.description,
-  authors: [{ name: site.name }],
+  applicationName: site.name,
+  keywords: site.keywords,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
+  openGraph: {
+    ...openGraphBase,
+    url: "/",
+    title: site.title,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { email: false, telephone: false, address: false },
 };
 
 export const viewport: Viewport = {

@@ -8,9 +8,12 @@ import {
   FiCode,
 } from "react-icons/fi";
 
+import JsonLd from "@/components/JsonLd";
 import BrowserFrame from "@/components/ui/BrowserFrame";
 import Reveal from "@/components/ui/Reveal";
 import { getNextProject, getProject, projects } from "@/lib/projects";
+import { openGraphBase, projectJsonLd } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -21,10 +24,29 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps<"/projects/[id]">): Promise<Metadata> {
-  const project = getProject((await params).id);
-  return project
-    ? { title: project.title, description: project.description }
-    : {};
+  const { id } = await params;
+  const project = getProject(id);
+  if (!project) return {};
+
+  const title = `${project.title} — ${project.summary}`;
+  const url = `/projects/${project.id}`;
+  return {
+    title,
+    description: project.description,
+    keywords: [project.title, ...project.stack, site.name],
+    alternates: { canonical: url },
+    openGraph: {
+      ...openGraphBase,
+      url,
+      title,
+      description: project.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: project.description,
+    },
+  };
 }
 
 export default async function ProjectPage({
@@ -39,6 +61,7 @@ export default async function ProjectPage({
 
   return (
     <article className="relative isolate overflow-hidden pt-36 pb-24">
+      <JsonLd data={projectJsonLd(project)} />
       <div
         aria-hidden
         className="absolute -top-56 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full bg-brand/15 blur-[150px]"

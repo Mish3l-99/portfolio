@@ -25,14 +25,14 @@ const roles = [
   "reliable APIs",
 ];
 
-/** Splits a word into letters that rise out of a mask one after another. */
+/** Splits a word into letters that rise out of a mask one after another.
+ *  The letters stay real text, so crawlers and screen readers read the word. */
 function MaskedWord({ word, delay = 0 }: { word: string; delay?: number }) {
   return (
-    <span className="inline-flex overflow-hidden" aria-label={word}>
+    <span className="inline-flex overflow-hidden">
       {[...word].map((char, i) => (
         <motion.span
           key={i}
-          aria-hidden
           className="inline-block"
           initial={{ y: "110%" }}
           animate={{ y: 0 }}
@@ -77,15 +77,10 @@ export default function Main() {
           <span className="block text-[clamp(4.5rem,17vw,13rem)]">
             <MaskedWord word={site.firstName} delay={0.2} />
           </span>
-          <span className="mt-3 block font-mono text-[clamp(1.9rem,7.4vw,6.5rem)] font-medium tracking-[-0.04em] md:pl-[18%]">
-            <span className="text-muted/50" aria-hidden>
-              &lt;
-            </span>
+          {/* The JSX brackets are CSS-only so the heading reads "Meshaal Noureldien". */}{" "}
+          <span className="mt-3 block font-mono text-[clamp(1.9rem,7.4vw,6.5rem)] font-medium tracking-[-0.04em] before:text-muted/50 before:content-['<'] after:ml-[0.35em] after:text-muted/50 after:content-['/>'] md:pl-[18%]">
             <span className="text-gradient">
               <MaskedWord word={site.lastName} delay={0.55} />
-            </span>
-            <span className="ml-[0.35em] text-muted/50" aria-hidden>
-              /&gt;
             </span>
           </span>
         </h1>
