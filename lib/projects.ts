@@ -7,7 +7,7 @@ export type Project = {
   description: string;
   image: string;
   demo: string;
-  code: string;
+  code?: string;
   stack: string[];
   featured?: boolean;
 };

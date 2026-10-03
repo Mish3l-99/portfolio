@@ -5,19 +5,19 @@ import BrowserFrame from "@/components/ui/BrowserFrame";
 import Reveal from "@/components/ui/Reveal";
 import type { Project } from "@/lib/projects";
 
-/** Large spotlight card for the most recent client project. */
+/** Large spotlight card for the most recent project. */
 export default function RecentProject({ project }: { project: Project }) {
   return (
     <Reveal>
-      <article className="card group relative grid gap-10 overflow-hidden p-6 md:grid-cols-12 md:items-center md:p-10">
+      <article className="card group relative isolate grid gap-10 overflow-hidden p-6 md:grid-cols-12 md:items-center md:p-10">
         <div
           aria-hidden
-          className="absolute -bottom-40 -left-40 size-96 rounded-full bg-brand/15 blur-[120px]"
+          className="pointer-events-none absolute -bottom-40 -left-40 -z-10 size-96 rounded-full bg-brand/15 blur-[120px]"
         />
 
         <div className="md:col-span-5">
           <p className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 font-mono text-[11px] tracking-widest text-brand uppercase">
-            Featured · Latest client work
+            Featured · Latest build
           </p>
           <h3 className="mt-6 text-4xl font-semibold tracking-tight md:text-5xl">
             {project.title}
@@ -47,14 +47,16 @@ export default function RecentProject({ project }: { project: Project }) {
             >
               Visit site <FiArrowUpRight />
             </a>
-            <a
-              href={project.code}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-            >
-              Source <FiCode />
-            </a>
+            {project.code && (
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
+                Source <FiCode />
+              </a>
+            )}
           </div>
         </div>
 

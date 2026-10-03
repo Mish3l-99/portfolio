@@ -72,14 +72,16 @@ export default async function ProjectPage({
             >
               Live demo <FiArrowUpRight />
             </a>
-            <a
-              href={project.code}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-            >
-              Source <FiCode />
-            </a>
+            {project.code && (
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
+                Source <FiCode />
+              </a>
+            )}
           </div>
         </Reveal>
 

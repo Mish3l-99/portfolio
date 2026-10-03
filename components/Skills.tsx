@@ -26,7 +26,7 @@ export default function Skills() {
               <article className="card group relative h-full overflow-hidden p-7 md:p-8">
                 <div
                   aria-hidden
-                  className="absolute -top-24 -right-24 size-56 rounded-full bg-brand/0 blur-3xl transition duration-700 group-hover:bg-brand/15"
+                  className="pointer-events-none absolute -top-24 -right-24 size-56 rounded-full bg-brand/0 blur-3xl transition duration-700 group-hover:bg-brand/15"
                 />
                 <p className="font-mono text-xs text-brand">0{i + 1}</p>
                 <h3 className="mt-3 text-2xl font-semibold tracking-tight">
