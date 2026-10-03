@@ -1,78 +1,37 @@
-"use client";
+import Project from "@/components/Project";
+import RecentProject from "@/components/RecentProject";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Serif from "@/components/ui/Serif";
+import { featuredProject, otherProjects } from "@/lib/projects";
 
-import { BsArrowReturnRight } from "react-icons/bs";
-
-import Project from "./Project";
-
-import { motion } from "framer-motion";
-import RecentProject from "./RecentProject";
-
-const staggerVariants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
-};
-
-const transitionVar = { duration: 0.6, staggerChildren: 0.6 };
-
-const projVariants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: -30 },
-};
-
-import data from "@/data.json";
-
-export type ProjectType = {
-  id: string;
-  title?: string;
-  img?: string;
-  code: string;
-  demo: string;
-  des: string;
-  skills?: string[];
-};
-
-const Projects = () => {
-  const projects: ProjectType[] = data.projects;
-
+export default function Projects() {
   return (
-    <section id="projects">
-      <div className="container">
-        <h3 className="text-meshaal uppercase">Projects</h3>
-        <div className="flex space-x-2">
-          <span className="text-[25px] md:text-[30px]">
-            <BsArrowReturnRight />
-          </span>
-          <h1 className="mb-4">What I&#39;ve done</h1>
+    <section id="work" className="py-28 md:py-40">
+      <div className="page">
+        <SectionHeading index="03" label="Selected work">
+          Things I&apos;ve <Serif>built</Serif> lately.
+        </SectionHeading>
+
+        {featuredProject && <RecentProject project={featuredProject} />}
+
+        <div className="mt-20 mb-8 flex items-end justify-between gap-4">
+          <h3 className="text-2xl font-semibold tracking-tight">
+            More projects
+          </h3>
+          <p className="font-mono text-xs text-muted">
+            {otherProjects.length} projects
+          </p>
         </div>
-        <RecentProject />
 
-        {/* projects grid */}
-        <h3 className="font-bold text-2xl mb-4">More Projects:</h3>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerVariants}
-          transition={transitionVar}
-          className="grid md:grid-cols-3 gap-4"
-        >
-          {/* highlighted project */}
-          {/* <div className="col-span-12">hi</div> */}
-
-          {/* the rest */}
-          {projects.map((p, i) => (
-            <motion.div
-              variants={projVariants}
-              transition={{ duration: 0.5 }}
-              key={p.id}
-            >
-              <Project project={p} />
-            </motion.div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {otherProjects.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 3) * 0.08}>
+              <Project project={project} index={i + 2} />
+            </Reveal>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

@@ -1,123 +1,108 @@
-"use client";
-
 import Image from "next/image";
+import { FiArrowUpRight, FiSend } from "react-icons/fi";
 
-import { BsArrowReturnRight } from "react-icons/bs";
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { GiArrowWings } from "react-icons/gi";
-import AnimateLayout2 from "./layout/AnimateLayout2";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Serif from "@/components/ui/Serif";
+import SocialLinks from "@/components/ui/SocialLinks";
+import { site } from "@/lib/site";
 
-const Contact = () => {
+const field =
+  "w-full rounded-2xl border border-line bg-white/3 px-4 py-3.5 text-fg placeholder:text-muted/60 transition focus:border-brand/60 focus:bg-white/5 focus:outline-none";
+
+export default function Contact() {
   return (
-    <section id="contact">
-      <div className="container">
-        <h3 className="text-meshaal uppercase">Contact</h3>
-        <div className="flex space-x-2">
-          <span className="text-[25px] md:text-[30px]">
-            <BsArrowReturnRight />
-          </span>
-          <h1 className="mb-4">Get in touch</h1>
-        </div>
+    <section id="contact" className="py-28 md:py-40">
+      <div className="page">
+        <SectionHeading index="04" label="Contact">
+          Let&apos;s build something <Serif>together</Serif>.
+        </SectionHeading>
 
-        {/* grid */}
-        <div className="grid grid-cols-3 mt-8 gap-x-6 gap-y-4">
-          <div className="col-span-3 md:col-span-1 p-4 shadow-md shadow-gray-400 rounded">
-            <Image
-              className="rounded-lg"
-              alt="/"
-              src="/contact.jpg"
-              height={300}
-              width={440}
-              objectFit="cover"
-            />
-            <div className="mt-6">
-              <h2>Meshaal Noureldien</h2>
-              <p className="text-meshaal font-semibold">Front-End Developer</p>
-              <p className="mt-6">
-                I am available for freelance or full-time positions.
-              </p>
-              <p className="mb-12">Contact me and let&#39;s talk.</p>
-            </div>
+        <div className="grid gap-5 md:grid-cols-12">
+          <Reveal className="md:col-span-5">
+            <div className="card relative isolate flex h-full flex-col justify-between gap-12 overflow-hidden p-8">
+              <Image
+                src="/contact.jpg"
+                alt=""
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="-z-10 object-cover opacity-40"
+              />
+              <div className="absolute inset-0 -z-10 bg-linear-to-t from-ink via-ink/80 to-ink/30" />
 
-            {/* social media shit */}
-            <div className="social flex justify-between items-center w-full  max-w-[220px] mt-8">
-              <div className="p-1 border border-gray-400 bg-white rounded">
-                <a
-                  href="#"
-                  // href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaTwitter size={25} />
-                </a>
+              <div>
+                <p className="text-2xl font-semibold tracking-tight">
+                  {site.name}
+                </p>
+                <p className="text-brand">{site.role}</p>
+                <p className="mt-6 max-w-sm text-muted">
+                  I&apos;m available for freelance projects and full-time
+                  positions. Tell me what you&apos;re building.
+                </p>
               </div>
-              <div className="p-1 border border-gray-400 bg-white rounded">
+
+              <div className="space-y-6">
                 <a
-                  href="#"
-                  // href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`mailto:${site.email}`}
+                  className="group inline-flex items-center gap-2 text-lg font-medium break-all hover:text-brand"
                 >
-                  <FaFacebook size={25} />
+                  {site.email}
+                  <FiArrowUpRight className="shrink-0 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
-              </div>
-              <div className="p-1 border border-gray-400 bg-white rounded">
-                <a
-                  href="https://www.linkedin.com/in/meshaal-noureldien-204294208/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin size={25} />
-                </a>
-              </div>
-              <div className="p-1 border border-gray-400 bg-white rounded">
-                <a
-                  href="https://github.com/Mish3l-99"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaGithub size={25} />
-                </a>
+                <SocialLinks />
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* form col */}
-
-          <div className="col-span-3 md:col-span-2">
-            <AnimateLayout2>
-              <form
-                action="https://getform.io/f/6b00cd38-3e80-4644-a68b-1e67dc7c9de7"
-                method="POST"
-                className="form"
+          <Reveal className="md:col-span-7" delay={0.1}>
+            <form
+              action={site.formAction}
+              method="POST"
+              className="card flex h-full flex-col gap-4 p-6 md:p-8"
+            >
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="space-y-2">
+                  <span className="font-mono text-xs text-muted">Name</span>
+                  <input
+                    name="name"
+                    required
+                    autoComplete="name"
+                    placeholder="Jane Doe"
+                    className={field}
+                  />
+                </label>
+                <label className="space-y-2">
+                  <span className="font-mono text-xs text-muted">Email</span>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="jane@company.com"
+                    className={field}
+                  />
+                </label>
+              </div>
+              <label className="flex flex-1 flex-col gap-2">
+                <span className="font-mono text-xs text-muted">Message</span>
+                <textarea
+                  name="message"
+                  required
+                  rows={7}
+                  placeholder="Tell me about your project…"
+                  className={`${field} flex-1 resize-none`}
+                />
+              </label>
+              <button
+                type="submit"
+                className="btn-primary mt-2 self-start px-7 py-3"
               >
-                <div className="flex items-center space-x-2 text-lg md:text-3xl mb-4 font-semibold">
-                  <GiArrowWings size={25} />
-                  <h3 className="">You can leave a message!</h3>
-                </div>
-                <input name="name" type="text" placeholder="Name.." />
-                <input name="email" type="email" placeholder="Email.." />
-                <textarea name="message" placeholder="Message.." rows={8} />
-                <button className="mt-10 w-fit mx-auto py-1 px-8">
-                  Submit
-                </button>
-
-                <div className="mt-8 flex items-center gap-x-2">
-                  Email:
-                  <a
-                    className="text-black hover:text-meshaal "
-                    href="mailto:meshaal.noureldien@gmail.com"
-                  >
-                    meshaal.noureldien@gmail.com
-                  </a>
-                </div>
-              </form>
-            </AnimateLayout2>
-          </div>
+                Send message <FiSend />
+              </button>
+            </form>
+          </Reveal>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

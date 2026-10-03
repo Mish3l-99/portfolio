@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meshaal Noureldien — Portfolio
 
-## Getting Started
+Personal portfolio built with Next.js 16 (App Router), React 19, Tailwind CSS 4 and Motion, with an AI "twin" chat powered by OpenAI ChatKit.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local` for the AI chat:
 
-## Learn More
+```
+OPENAI_API_KEY=...
+NEXT_PUBLIC_CHATKIT_WORKFLOW_ID=...
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Path                       | What lives there                                  |
+| -------------------------- | ------------------------------------------------- |
+| `app/`                     | Routes: home, `projects/[id]`, 404                |
+| `components/`              | Page sections (`Main` hero, `About`, `Skills`, …) |
+| `components/ui/`           | Shared building blocks (`Reveal`, `BrowserFrame`) |
+| `components/chat/`         | AI twin button + drawer                           |
+| `lib/site.ts`              | Name, email, social links, nav                    |
+| `lib/skills.ts`            | Skill groups and icons                            |
+| `data.json`, `lib/projects.ts` | Project content and typed helpers             |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To add a project, append it to `data.json` and drop its screenshot in `public/assets/projects/`.
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `pnpm dev` — start the dev server
+- `pnpm build` — production build
+- `pnpm start` — serve the production build
+- `pnpm lint` — run ESLint

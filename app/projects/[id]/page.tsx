@@ -1,97 +1,140 @@
-"use client";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  FiArrowLeft,
+  FiArrowRight,
+  FiArrowUpRight,
+  FiCode,
+} from "react-icons/fi";
 
-import Image from "next/image";
+import BrowserFrame from "@/components/ui/BrowserFrame";
+import Reveal from "@/components/ui/Reveal";
+import { getNextProject, getProject, projects } from "@/lib/projects";
 
-import { BsArrowReturnRight } from "react-icons/bs";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+export const dynamicParams = false;
 
-import data from "@/data.json";
-import { ProjectType } from "@/components/Projects";
-import { useParams } from "next/navigation";
+export function generateStaticParams() {
+  return projects.map(({ id }) => ({ id }));
+}
 
-const ProjectDetailsPage = () => {
-  const { id } = useParams();
-  const projects: ProjectType[] = data.projects;
+export async function generateMetadata({
+  params,
+}: PageProps<"/projects/[id]">): Promise<Metadata> {
+  const project = getProject((await params).id);
+  return project
+    ? { title: project.title, description: project.description }
+    : {};
+}
 
-  const project = projects.find((p) => p.id === id);
+export default async function ProjectPage({
+  params,
+}: PageProps<"/projects/[id]">) {
+  const { id } = await params;
+  const project = getProject(id);
+  if (!project) notFound();
 
-  if (!project) return <p>Loading...</p>;
+  const next = getNextProject(id);
+  const number = String(projects.indexOf(project) + 1).padStart(2, "0");
 
   return (
-    <div>
-      <div className="w-screen h-[220px] md:h-[260px] relative bg-black">
-        <Image
-          src={project.img!}
-          alt="/"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-10 object-center"
-        />
+    <article className="relative isolate overflow-hidden pt-36 pb-24">
+      <div
+        aria-hidden
+        className="absolute -top-56 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full bg-brand/15 blur-[150px]"
+      />
 
-        {/* the absolute layer */}
-        <div className="absolute left-0 top-0 z-[10] w-full h-full flex flex-col justify-end py-12 text-gray-200">
-          <div>
-            <div className="container">
-              <h2>{project.title}</h2>
-              <p>{`${project.skills?.[0]}/${project.skills?.[1]}`}</p>
-            </div>
+      <div className="page">
+        <Link
+          href="/#work"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest text-muted uppercase hover:text-fg"
+        >
+          <FiArrowLeft className="transition group-hover:-translate-x-1" />
+          All work
+        </Link>
+
+        <Reveal className="mt-10 grid gap-10 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-8">
+            <p className="font-mono text-sm text-brand">Project {number}</p>
+            <h1 className="mt-3 text-6xl leading-[0.9] font-semibold tracking-[-0.04em] md:text-8xl">
+              {project.title}
+            </h1>
+            <p className="mt-4 font-serif text-2xl text-muted italic md:text-3xl">
+              {project.summary}
+            </p>
           </div>
-        </div>
-      </div>
-
-      {/* under image grid */}
-      <div className="container mt-12 pb-4">
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="md:col-span-2">
-            <h3 className="text-meshaal uppercase">Project</h3>
-            <div className="flex space-x-2">
-              <span className="text-[25px] md:text-[30px]">
-                <BsArrowReturnRight />
-              </span>
-              <h1 className="mb-4">Overview</h1>
-            </div>
-            <p className="my-3">{project.des}</p>
-            <div className="flex items-center space-x-2">
-              <button className="px-4 py-1 rounded-md">
-                <a target="_blank" rel="noreferrer" href={project.demo}>
-                  View Demo
-                </a>
-              </button>
-              <button className="px-4 py-1 rounded-md">
-                <a target="_blank" rel="noreferrer" href={project.code}>
-                  Code
-                </a>
-              </button>
-            </div>
-            <span
-              className="my-2 cursor-pointer underline block hover:text-meshaal"
-              onClick={() => history.back()}
+          <div className="flex flex-wrap gap-3 md:col-span-4 md:justify-end">
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
             >
-              back
-            </span>
+              Live demo <FiArrowUpRight />
+            </a>
+            <a
+              href={project.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              Source <FiCode />
+            </a>
           </div>
+        </Reveal>
 
-          {/* technologies col */}
-          <div className="md:col-span-1 p-2 shadow-md shadow-gray-400 rounded-md">
-            <div className="text-center">
-              <h3 className="text-lg md:text-2xl">Technologies</h3>
-            </div>
-            <div className="my-2 p-4">
-              {project.skills?.map((s, i) => (
-                <div
-                  key={i}
-                  className="flex items-center space-x-2 my-1 md:text-lg"
+        <Reveal delay={0.15} className="mt-14">
+          <BrowserFrame
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            sizes="(min-width: 1152px) 1152px, 100vw"
+            preload
+          />
+        </Reveal>
+
+        <div className="mt-16 grid gap-10 border-t border-line pt-12 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <h2 className="font-mono text-xs tracking-[0.25em] text-muted uppercase">
+              Overview
+            </h2>
+            <p className="mt-4 text-xl leading-relaxed text-fg/90 md:text-2xl">
+              {project.description}
+            </p>
+          </div>
+          <div className="md:col-span-4">
+            <h2 className="font-mono text-xs tracking-[0.25em] text-muted uppercase">
+              Built with
+            </h2>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {project.stack.map((tech) => (
+                <li
+                  key={tech}
+                  className="rounded-full border border-line bg-white/3 px-4 py-2 text-sm"
                 >
-                  <IoMdCheckmarkCircleOutline className="text-meshaal" />
-                  <span>{s}</span>
-                </div>
+                  {tech}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
 
-export default ProjectDetailsPage;
+        <Link
+          href={`/projects/${next.id}`}
+          className="group mt-24 flex items-center justify-between gap-6 rounded-3xl border border-line p-8 transition hover:border-brand/40 hover:bg-brand/5 md:p-12"
+        >
+          <div>
+            <p className="font-mono text-xs tracking-[0.25em] text-muted uppercase">
+              Next project
+            </p>
+            <p className="mt-2 text-4xl font-semibold tracking-tight md:text-6xl">
+              {next.title}
+            </p>
+          </div>
+          <span className="grid size-14 shrink-0 place-items-center rounded-full bg-brand text-white transition duration-500 group-hover:translate-x-1 md:size-20">
+            <FiArrowRight size={24} />
+          </span>
+        </Link>
+      </div>
+    </article>
+  );
+}

@@ -16,7 +16,7 @@ export async function createSession() {
 
   if (!WORKFLOW_ID) throw new Error("WORKFLOW_ID not configured");
 
-  // Create ChatKit session with Clerk user ID
+  // Create a ChatKit session, keyed to the visitor IP
   const response = await fetch("https://api.openai.com/v1/chatkit/sessions", {
     method: "POST",
     headers: {

@@ -1,42 +1,41 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { ProjectType } from "./Projects";
+import { FiArrowUpRight } from "react-icons/fi";
 
-interface Props {
+import BrowserFrame from "@/components/ui/BrowserFrame";
+import type { Project as ProjectType } from "@/lib/projects";
+
+type Props = {
   project: ProjectType;
-}
-
-const Project = ({ project }: Props) => {
-  return (
-    <div className="col-span-3 md:col-span-1 relative h-75 w-full shadow-xl shadow-gray-400 rounded-md overflow-hidden group">
-      {/* Image */}
-      <Image
-        className="object-cover transition-opacity duration-500 object-top-left group-hover:opacity-20"
-        src={project.img!}
-        fill
-        quality={20}
-        alt={project.title!}
-      />
-
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-r from-meshaal to-[#ff7c7c] opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <h3 className="text-2xl text-white tracking-wider">{project.title}</h3>
-
-        <p className="pb-4 pt-2 text-white">{project.skills?.[0]}</p>
-
-        <Link href={`/projects/${project.id}`}>
-          <p className="py-1 px-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer hover:scale-110 transition-transform duration-300">
-            More Info
-          </p>
-        </Link>
-      </div>
-    </div>
-  );
+  index: number;
 };
 
-export default Project;
+/** Grid card linking to a project's detail page. */
+export default function Project({ project, index }: Props) {
+  return (
+    <Link
+      href={`/projects/${project.id}`}
+      className="group block rounded-3xl border border-line bg-surface/60 p-3 transition duration-500 hover:-translate-y-1 hover:border-white/15 hover:bg-surface"
+    >
+      <BrowserFrame
+        src={project.image}
+        alt={`${project.title} preview`}
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        className="rounded-2xl shadow-none"
+      />
+      <div className="flex items-start justify-between gap-4 px-3 pt-5 pb-3">
+        <div>
+          <p className="font-mono text-xs text-muted">
+            {String(index).padStart(2, "0")} · {project.stack[0]}
+          </p>
+          <h3 className="mt-1.5 text-xl font-semibold tracking-tight">
+            {project.title}
+          </h3>
+          <p className="text-sm text-muted">{project.summary}</p>
+        </div>
+        <span className="grid size-10 shrink-0 place-items-center rounded-full border border-line transition duration-500 group-hover:rotate-45 group-hover:border-brand group-hover:bg-brand">
+          <FiArrowUpRight />
+        </span>
+      </div>
+    </Link>
+  );
+}

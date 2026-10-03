@@ -1,15 +1,11 @@
-"use client";
-
 import ChatButton from "./button";
 import ChatDrawer from "./drawer";
 
-const Chat = () => {
-  return (
-    <div>
-      <ChatButton />
-      <ChatDrawer />
-    </div>
-  );
-};
+const Chat = () => (
+  <>
+    <ChatButton />
+    <ChatDrawer />
+  </>
+);
 
 export default Chat;

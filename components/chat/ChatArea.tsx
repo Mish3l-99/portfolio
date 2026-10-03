@@ -1,24 +1,53 @@
 "use client";
 
+import { ChatKit, useChatKit } from "@openai/chatkit-react";
+import { useRef, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import { createSession } from "@/actions/create-session";
+import { threadHasReply } from "@/actions/thread-has-reply";
+import { site } from "@/lib/site";
 import { useChatStore } from "@/store/chat";
-import { ChatKit, useChatKit } from "@openai/chatkit-react";
-import { useState } from "react";
+
+// ChatKit renders in an iframe, so it loads its own copy of the site fonts.
+const fontSources = [
+  {
+    family: "Geist",
+    src: "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2",
+    weight: "100 900",
+    display: "swap" as const,
+  },
+  {
+    family: "JetBrains Mono",
+    src: "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwE.woff2",
+    weight: "100 800",
+    display: "swap" as const,
+  },
+];
 
 function ChatArea() {
-  const { closeChat } = useChatStore();
+  const closeChat = useChatStore((s) => s.closeChat);
 
   const [loading, setLoading] = useState(true);
+  const [offline, setOffline] = useState(false);
+  const threadId = useRef<string | null>(null);
 
   const { control } = useChatKit({
-    api: {
-      async getClientSecret() {
-        return await createSession();
+    api: { getClientSecret: () => createSession() },
+    theme: {
+      colorScheme: "dark",
+      radius: "round",
+      color: {
+        accent: { primary: "#ff1616", level: 1 },
+        grayscale: { hue: 240, tint: 1, shade: -2 },
+      },
+      typography: {
+        baseSize: 15,
+        fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif",
+        fontFamilyMono: "'JetBrains Mono', ui-monospace, monospace",
+        fontSources,
       },
     },
-    theme: "light",
     history: { enabled: false },
     header: {
       title: {
@@ -76,6 +105,15 @@ function ChatArea() {
       ],
     },
     onReady: () => setLoading(false),
+    onThreadChange: ({ threadId: id }) => {
+      threadId.current = id;
+    },
+    onResponseStart: () => setOffline(false),
+    onResponseEnd: async () => {
+      if (threadId.current && !(await threadHasReply(threadId.current))) {
+        setOffline(true);
+      }
+    },
 
     disclaimer: {
       text: "Disclaimer: This is my AI-powered twin. It may not be 100% accurate and should be verified for accuracy.",
@@ -85,14 +123,27 @@ function ChatArea() {
   return (
     <>
       {loading && (
-        <div className="size-full flex flex-col gap-y-3 items-center justify-center">
-          <span className="animate-spin">
-            <AiOutlineLoading3Quarters />
-          </span>
-          <span>Loading...</span>
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-surface text-sm text-muted">
+          <AiOutlineLoading3Quarters className="animate-spin text-brand" />
+          Waking up my twin…
         </div>
       )}
       <ChatKit control={control} className="size-full" />
+      {offline && (
+        <div
+          role="alert"
+          className="absolute inset-x-4 bottom-40 z-10 rounded-2xl border border-brand/30 bg-ink/95 p-4 text-sm shadow-xl backdrop-blur"
+        >
+          <p className="font-medium">My AI twin is offline right now.</p>
+          <p className="mt-1 text-muted">
+            Please reach me directly at{" "}
+            <a href={`mailto:${site.email}`} className="text-brand underline">
+              {site.email}
+            </a>
+            .
+          </p>
+        </div>
+      )}
     </>
   );
 }

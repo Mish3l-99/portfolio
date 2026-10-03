@@ -1,67 +1,75 @@
-"use client";
+import Link from "next/link";
+import { FiArrowUpRight, FiCode } from "react-icons/fi";
 
-import Image from "next/image";
-import { BsCodeSlash } from "react-icons/bs";
+import BrowserFrame from "@/components/ui/BrowserFrame";
+import Reveal from "@/components/ui/Reveal";
+import type { Project } from "@/lib/projects";
 
-import { FaRegEye } from "react-icons/fa";
-
-const proj = {
-  img: "/assets/projects/arrivo.png",
-  link: "https://arrivo-eight.vercel.app",
-  codeLink: "https://github.com/Mish3l-99/arrivo",
-  title: "none",
-};
-
-const RecentProject = () => {
+/** Large spotlight card for the most recent client project. */
+export default function RecentProject({ project }: { project: Project }) {
   return (
-    <div className="mt-2 mb-12 md:mb-24">
-      <div className="my-6 grid grid-cols-12 items-center gap-2">
-        <div className="col-span-12 md:col-span-4">
-          <h3 className="mb-2">
-            Check out this recent project I built for a tourism agency:
-          </h3>
+    <Reveal>
+      <article className="card group relative grid gap-10 overflow-hidden p-6 md:grid-cols-12 md:items-center md:p-10">
+        <div
+          aria-hidden
+          className="absolute -bottom-40 -left-40 size-96 rounded-full bg-brand/15 blur-[120px]"
+        />
 
-          <p>
-            A modern tourism website designed for an early-stage travel company
-            to showcase trips, destinations, and services. The project is
-            heavily focused on polished UI, smooth animations, and creating an
-            engaging user experience.
+        <div className="md:col-span-5">
+          <p className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 font-mono text-[11px] tracking-widest text-brand uppercase">
+            Featured · Latest client work
           </p>
+          <h3 className="mt-6 text-4xl font-semibold tracking-tight md:text-5xl">
+            {project.title}
+          </h3>
+          <p className="mt-2 font-serif text-xl text-muted italic">
+            {project.summary}
+          </p>
+          <p className="mt-6 leading-relaxed text-muted">
+            {project.description}
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {project.stack.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-full border border-line px-3 py-1 font-mono text-xs text-fg/70"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Visit site <FiArrowUpRight />
+            </a>
+            <a
+              href={project.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              Source <FiCode />
+            </a>
+          </div>
+        </div>
 
-          <div className="mt-4 flex flex-col md:flex-row gap-4">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={proj.link}
-              className="bg-meshaal w-fit text-white hover:bg-white hover:text-black duration-500 ease-in px-4 py-2 rounded-lg border shadow flex items-center gap-x-2"
-            >
-              View Webpage
-              <FaRegEye />
-            </a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={proj.codeLink}
-              className="bg-white w-fit text-gray-800 hover:bg-white hover:shadow-lg duration-500 ease-in py-1 px-4 rounded-full border flex items-center gap-x-2"
-            >
-              Code
-              <BsCodeSlash />
-            </a>
-          </div>
-        </div>
-        <div className="col-span-12 md:col-span-8 ">
-          <div className="w-full h-[260px] relative">
-            <Image
-              src={proj.img}
-              alt="arrivo"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+        <Link
+          href={`/projects/${project.id}`}
+          aria-label={`${project.title} case study`}
+          className="md:col-span-7 md:rotate-1 md:transition md:duration-700 md:group-hover:rotate-0"
+        >
+          <BrowserFrame
+            src={project.image}
+            alt={`${project.title} homepage`}
+            sizes="(min-width: 768px) 55vw, 100vw"
+          />
+        </Link>
+      </article>
+    </Reveal>
   );
-};
-
-export default RecentProject;
+}

@@ -1,58 +1,75 @@
 {
   "projects": [
     {
-      "id": "1",
+      "id": "arrivo",
+      "title": "Arrivo",
+      "summary": "Tourism agency website",
+      "description": "A modern tourism website designed for an early-stage travel company to showcase trips, destinations, and services. The project is heavily focused on polished UI, smooth animations, and creating an engaging user experience.",
+      "image": "/assets/projects/arrivo.png",
+      "demo": "https://arrivo-eight.vercel.app",
+      "code": "https://github.com/Mish3l-99/arrivo",
+      "stack": ["Next.js", "Tailwind CSS", "Framer Motion"],
+      "featured": true
+    },
+    {
+      "id": "travel",
       "title": "Travel",
-      "img": "/assets/projects/travel.png",
-      "des": "this is a travel agency website design",
+      "summary": "Travel agency website",
+      "description": "A travel agency website design.",
+      "image": "/assets/projects/travel.png",
       "demo": "https://mish3l-99.github.io/travel",
       "code": "https://github.com/Mish3l-99/travel",
-      "skills": ["React", "Next.js", "Tailwind CSS"]
+      "stack": ["React", "Next.js", "Tailwind CSS"]
     },
     {
-      "id": "2",
+      "id": "aptive",
       "title": "Aptive",
-      "img": "/assets/projects/aptive.png",
-      "des": "This is a website UI designed.",
+      "summary": "Website UI",
+      "description": "A website UI design.",
+      "image": "/assets/projects/aptive.png",
       "demo": "https://mish3l-99.github.io/aptive",
       "code": "https://github.com/Mish3l-99/aptive",
-      "skills": ["React", "Next.js", "Tailwind CSS"]
+      "stack": ["React", "Next.js", "Tailwind CSS"]
     },
     {
-      "id": "3",
+      "id": "defi",
       "title": "Defi",
-      "img": "/assets/projects/defi.png",
-      "des": "this is a website design.",
+      "summary": "DeFi website design",
+      "description": "A website design for a decentralized finance product.",
+      "image": "/assets/projects/defi.png",
       "demo": "https://mish3l-99.github.io/defi",
       "code": "https://github.com/Mish3l-99/defi",
-      "skills": ["React", "Next.js", "Tailwind CSS"]
+      "stack": ["React", "Next.js", "Tailwind CSS"]
     },
     {
-      "id": "4",
+      "id": "data",
       "title": "Data",
-      "img": "/assets/projects/data.png",
-      "des": "this is a website UI design.",
+      "summary": "Website UI",
+      "description": "A website UI design.",
+      "image": "/assets/projects/data.png",
       "demo": "https://mish3l-99.github.io/data",
       "code": "https://github.com/Mish3l-99/data",
-      "skills": ["React", "Next.js", "Tailwind CSS"]
+      "stack": ["React", "Next.js", "Tailwind CSS"]
     },
     {
-      "id": "5",
+      "id": "brand",
       "title": "Brand",
-      "img": "/assets/projects/brand.png",
-      "des": "this is a website UI design.",
+      "summary": "Brand website UI",
+      "description": "A website UI design.",
+      "image": "/assets/projects/brand.png",
       "demo": "https://mish3l-99.github.io/brand",
       "code": "https://github.com/Mish3l-99/brand",
-      "skills": ["React", "Next.js", "Tailwind CSS"]
+      "stack": ["React", "Next.js", "Tailwind CSS"]
     },
     {
-      "id": "6",
+      "id": "socia",
       "title": "Socia",
-      "img": "/assets/projects/socia.png",
-      "des": "this is a social media website design.",
+      "summary": "Social media website",
+      "description": "A social media website design.",
+      "image": "/assets/projects/socia.png",
       "demo": "https://mish3l-99.github.io/socia/",
       "code": "https://github.com/Mish3l-99/socia",
-      "skills": ["PHP", "Bootstrap"]
+      "stack": ["PHP", "Bootstrap"]
     }
   ]
 }

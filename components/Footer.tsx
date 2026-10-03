@@ -1,48 +1,36 @@
-"use client";
+import { FiArrowUp } from "react-icons/fi";
 
-import Image from "next/image";
-import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import { MdOutlineDoubleArrow } from "react-icons/md";
+import SocialLinks from "@/components/ui/SocialLinks";
+import { site } from "@/lib/site";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <div className="mt-auto bg-gray-300 py-2">
-      <div className="container">
-        <div className="flex justify-between items-center relative">
-          <div>
-            <Image
-              alt="/"
-              src="/assets/logo/FMN.png"
-              height={40}
-              width={80}
-              objectFit="contain"
-            />
-          </div>
-
-          {/* absolute arrow up */}
-          <div className="absolute left-[50%] translate-x-[-50%] top-[33px] p-1 rounded-full bg-white shadow-lg shadow-gray-700 mt-[-60px] cursor-pointer hover:scale-110 ease-in duration-500">
-            <Link href="#">
-              <MdOutlineDoubleArrow
-                size={25}
-                className="rotate-[-90deg] text-meshaal"
-              />
-            </Link>
-          </div>
-          <div>
-            <a
-              className="text-green-800"
-              href="https://wa.me/971504165096"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp size={25} />
-            </a>
-          </div>
+    <footer className="relative overflow-hidden border-t border-line pt-16">
+      <div className="page flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <div className="space-y-4">
+          <p className="max-w-xs text-muted">
+            Designed &amp; built by {site.name} with Next.js.
+          </p>
+          <SocialLinks />
         </div>
+        <a href="#" className="btn-ghost self-start md:self-auto">
+          Back to top <FiArrowUp />
+        </a>
       </div>
-    </div>
-  );
-};
 
-export default Footer;
+      <div className="page mt-10 flex justify-between border-t border-line py-6 font-mono text-xs text-muted">
+        <span>
+          © {new Date().getFullYear()} {site.firstName}
+        </span>
+        <span>{site.role}</span>
+      </div>
+
+      <p
+        aria-hidden
+        className="pointer-events-none -mb-[0.22em] text-center text-[22vw] leading-none font-semibold tracking-[-0.06em] text-transparent select-none [-webkit-text-stroke:1px_rgb(255_255_255/0.12)]"
+      >
+        {site.firstName}
+      </p>
+    </footer>
+  );
+}
