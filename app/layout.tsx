@@ -2,9 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 
-import Chat from "@/components/chat";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -76,12 +73,7 @@ export default function RootLayout({
           src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
           strategy="afterInteractive"
         />
-        <Providers>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Chat />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
